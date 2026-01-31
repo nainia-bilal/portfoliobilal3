@@ -1,0 +1,365 @@
+/* --- Variables & Reset --- */
+:root {
+    --bg-color: #280905;
+    --primary-color: #740A03;
+    --secondary-color: #C3110C;
+    --highlight-color: #E6501B;
+    --text-color: #f0f0f0;
+    --card-bg: #3a100b;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+section {
+    padding: 4rem 10%;
+}
+
+/* --- Navbar --- */
+header {
+    background-color: rgba(40, 9, 5, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--highlight-color);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--highlight-color);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+    gap: 2rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.typing-container {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--highlight-color);
+    min-height: 1.6em;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    color: var(--highlight-color);
+    transform: translateY(-5px);
+}
+
+.hero-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--secondary-color);
+    box-shadow: 0 0 20px rgba(195, 17, 12, 0.4);
+}
+
+/* --- About Section --- */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-img {
+    flex: 1;
+}
+
+.about-img img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    margin-bottom: 1.5rem;
+    color: var(--highlight-color);
+}
+
+.highlight-name {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* --- Cards (Education, Experience, Projects) --- */
+.page-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--highlight-color);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid var(--secondary-color);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+    color: var(--highlight-color);
+    margin-bottom: 0.5rem;
+}
+
+.card h4 {
+    color: #ccc;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Project Specifics */
+.project-card {
+    padding: 0;
+    overflow: hidden;
+    border: none;
+    border-bottom: 5px solid var(--secondary-color);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- Contact Section --- */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.contact-info,
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.info-item i {
+    color: var(--highlight-color);
+    font-size: 1.5rem;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary-color);
+    color: white;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+.contact-form button:hover {
+    background-color: var(--highlight-color);
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: auto;
+    background-color: #1a0503;
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid var(--primary-color);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 60px;
+        height: calc(100vh - 60px);
+        background-color: var(--bg-color);
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        padding-top: 2rem;
+        transition: 0.4s;
+        border-top: 1px solid var(--primary-color);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .hero,
+    .about-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-img img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .about-container {
+        flex-direction: column;
+    }
+
+    /* Img top on mobile */
+}
